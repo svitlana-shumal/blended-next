@@ -5,7 +5,7 @@ import { persist } from 'zustand/middleware';
 interface ExchangeInfo {
   from: string;
   to: string;
-  ammount: string;
+  amount: string;
   rate: number;
   result: number;
 }
@@ -23,7 +23,7 @@ interface CurrencyStore {
   setRates: (rates: [string, number][]) => void;
   setFilter: (filter: string) => void;
   setIsLoading: (loading: boolean) => void;
-  setIsError: (error: boolean) => void;
+  setIsError: (error: string | null) => void;
   setHasHydrated: (state: boolean) => void;
 }
 

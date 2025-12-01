@@ -11,10 +11,8 @@ export default function ExchangeForm() {
 
   const handleSubmit = async (formData: FormData) => {
     const value = formData.get('currency') as string;
-
-    // console.log(value);
-    const [amount, from, , to] = value.split('');
-    const data = await exchangeCurrency({ amount, from, to });
+    const [amount, from, , to] = value.split(' ');
+    const data = await exchangeCurrency({ from, amount, to });
     // console.log(data);
     setExchangeInfo(data);
   };

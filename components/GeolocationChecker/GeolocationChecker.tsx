@@ -8,10 +8,10 @@ import { useCurrencyStore } from '@/lib/stores/currencyStore';
 export default function GeolocationChecker() {
   const baseCurrency = useCurrencyStore((state) => state.baseCurrency);
   const setBaseCurrency = useCurrencyStore((state) => state.setBaseCurrency);
-  const hasHydration = useCurrencyStore((state) => state.hasHydrated);
+  const hasHydrated = useCurrencyStore((state) => state.hasHydrated);
 
   useEffect(() => {
-    if (!hasHydration || baseCurrency) return;
+    if (!hasHydrated || baseCurrency) return;
 
     const options = {
       enableHighAccuracy: true,
@@ -31,7 +31,7 @@ export default function GeolocationChecker() {
     };
 
     navigator.geolocation.getCurrentPosition(success, error, options);
-  }, [baseCurrency, setBaseCurrency, hasHydration]);
+  }, [baseCurrency, setBaseCurrency, hasHydrated]);
 
   return null;
 }
